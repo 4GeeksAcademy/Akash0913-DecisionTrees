@@ -6,18 +6,14 @@ from sklearn.metrics import accuracy_score
 from sklearn.model_selection import GridSearchCV
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
-from pickle import dump
+from sklearn.feature_selection import SelectKBest
+from sklearn.model_selection import train_test_split
+
 
 total_data = pd.read_csv("https://raw.githubusercontent.com/4GeeksAcademy/decision-tree-project-tutorial/main/diabetes.csv")
 print(total_data.head())
 total_data = total_data.drop_duplicates().reset_index(drop = True)
 print(total_data.head())
-# No normalization of variables is needed for training this model
-
-# Feature selection
-
-from sklearn.feature_selection import SelectKBest
-from sklearn.model_selection import train_test_split
 
 X = total_data.drop("Outcome", axis = 1)
 y = total_data["Outcome"]
